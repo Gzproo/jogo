@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    // Configura a semente para números aleatórios baseada no tempo atual
+    srand(time(0));
+
+    int numeroSecreto = rand() % 100 + 1; // Gera um número entre 1 e 100
+    int palpite = 0;
+    int tentativas = 0;
+
+    cout << "========================================" << endl;
+    cout << "   BEM-VINDO AO JOGO DE ADIVINHACAO!    " << endl;
+    cout << "========================================" << endl;
+    cout << "Eu pensei em um numero entre 1 e 100." << endl;
+    cout << "Sera que voce consegue adivinhar?" << endl;
+
+    // Loop do jogo
+    while (palpite != numeroSecreto) {
+        cout << "\nDigite seu palpite: ";
+        cin >> palpite;
+        tentativas++;
+
+        if (palpite > numeroSecreto) {
+            cout << "Muito alto! Tente um numero menor." << endl;
+        } else if (palpite < numeroSecreto) {
+            cout << "Muito baixo! Tente um numero maior." << endl;
+        } else {
+            cout << "\nPARABENS! Voce acertou em " << tentativas << " tentativas!" << endl;
+        }
+    }
+
+    cout << "========================================" << endl;
+    return 0;
+}
